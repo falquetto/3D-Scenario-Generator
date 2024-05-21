@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://v8pwplvcxu3q"]
+[gd_scene load_steps=3 format=3 uid="uid://v8pwplvcxu3q"]
 
 [ext_resource type="Script" path="res://scripts/generate_shapes.gd" id="1_vcpqs"]
+[ext_resource type="Script" path="res://Camera3D.gd" id="2_fnpnv"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_vcpqs")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.913005, 0.407948, 0, -0.407948, 0.913005, 0, 3.48936, 14.0293)
+script = ExtResource("2_fnpnv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.00331611, 0.999995, 0, -0.999995, 0.00331611, 0, 4.87482, 0)
