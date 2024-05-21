@@ -1,0 +1,13 @@
+{
+	"number_of_shapes": 20,
+	"min_size": 0.5,
+	"max_size": 2.0,
+	"position_range": {
+		"x": [-10, 10],
+		"y": [-10, 10],
+		"z": [-10, 10]
+	},
+	"light_intensity_range": [0.5, 2.0],
+	"light_color_range": [0.5, 1.0],
+	"camera_speed": 5.0
+}

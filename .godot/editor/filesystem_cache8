@@ -1,0 +1,7 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1716327817
+config.json::JSON::-1::1716327504::0::1::::<><>::
+icon.svg::CompressedTexture2D::1892178864309182330::1716323429::1716323441::1::::<><>::
+scene.tscn::PackedScene::1543041030440902736::1716327766::0::1::::<><>::res://scripts/generate_shapes.gd
+::res://scripts/::1716327219
+generate_shapes.gd::GDScript::-1::1716327219::0::1::::<>Node3D<>::
