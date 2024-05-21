@@ -9,5 +9,6 @@
 	},
 	"light_intensity_range": [0.5, 2.0],
 	"light_color_range": [0.5, 1.0],
-	"camera_speed": 5.0
+	"camera_maxspeed": 100.0,
+	"camera_accel": 10.0
 }
