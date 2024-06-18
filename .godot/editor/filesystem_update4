@@ -1,4 +1,2 @@
 res://scene.tscn
 res://scripts/generate_shapes.gd
-res://root_node.tscn
-res://config.json

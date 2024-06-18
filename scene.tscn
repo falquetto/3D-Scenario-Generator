@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://v8pwplvcxu3q"]
 
 [ext_resource type="Script" path="res://scripts/generate_shapes.gd" id="1_vcpqs"]
-[ext_resource type="Script" path="res://Camera3D.gd" id="2_fnpnv"]
+[ext_resource type="Script" path="res://scripts/Camera3D.gd" id="2_fnpnv"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_vcpqs")

@@ -7,11 +7,27 @@ extends Node3D
 @export var light_intensity_range: Vector2 = Vector2(0.5, 2.0) 
 @export var light_color_range: Vector2 = Vector2(0.5, 1.0) 
 @export var camera_speed: float = 5.0 
+@export var textures: Array = []
 
 var config = {}
 
+func load_textures():
+	var texture_path = "res://textures/"
+	var dir = DirAccess.open(texture_path)
+	dir.list_dir_begin()  # Correct use to skip navigational links if required
+	var file_name = dir.get_next()
+	while file_name != "":
+		if not (file_name == "." or file_name == ".."):  # Explicitly skipping navigational entries
+			if file_name.ends_with(".png") or file_name.ends_with(".jpg"):  # Check for image files
+				var texture = load(texture_path + file_name)
+				if texture:
+					textures.append(texture)
+		file_name = dir.get_next()
+	dir.list_dir_end()
+
 func _ready():
 	load_config()
+	load_textures()
 	randomize()
 	var shapes_to_generate = config.get("number_of_shapes", number_of_shapes)
 	var min_shape_size = config.get("min_size", min_size)
@@ -57,6 +73,12 @@ func create_random_shape(min_shape_size: float, max_shape_size: float, pos_range
 	var pos_y = rand_range(pos_range["y"][0], pos_range["y"][1])
 	var pos_z = rand_range(pos_range["z"][0], pos_range["z"][1])
 	mesh_instance.transform.origin = Vector3(pos_x, pos_y, pos_z)
+	
+	#set random texture
+	if textures.size() > 0:
+		var material = StandardMaterial3D.new()
+		material.albedo_texture = textures[randi() % textures.size()]
+		mesh_instance.material_override = material
 
 	return mesh_instance
 
