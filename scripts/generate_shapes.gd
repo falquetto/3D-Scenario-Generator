@@ -6,16 +6,15 @@ extends Node3D
 @export var position_range: Vector3 = Vector3(10, 10, 10)
 @export var min_intensity: float = 0.5
 @export var max_intensity: float = 2.0
-@export var color_range: Array = [Color(1, 1, 1), Color(1, 0, 0), Color(0, 1, 0), Color(0, 0, 1)]
 @export var camera_speed: float = 5.0 
-@export var num_lights: int = 5
+@export var num_lights: int = 35
 
 var textures: Array = []
 var config = {}
 
 func create_random_light():
-	var light = SpotLight3D.new()  # Change this to DirectionalLight, SpotLight, etc., as needed
-	light.light_color = color_range[randi() % color_range.size()]
+	var light = OmniLight3D.new()  # Change this to DirectionalLight, SpotLight, etc., as needed
+	light.light_color = Color(randf(), randf(), randf())
 	light.light_energy = rand_range(min_intensity, max_intensity)
 	var pos_x = rand_range(-position_range.x, position_range.x)
 	var pos_y = rand_range(-position_range.y, position_range.y)
