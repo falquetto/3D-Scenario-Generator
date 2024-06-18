@@ -4,12 +4,25 @@ extends Node3D
 @export var min_size: float = 0.5
 @export var max_size: float = 2.0
 @export var position_range: Vector3 = Vector3(10, 10, 10)
-@export var light_intensity_range: Vector2 = Vector2(0.5, 2.0) 
-@export var light_color_range: Vector2 = Vector2(0.5, 1.0) 
+@export var min_intensity: float = 0.5
+@export var max_intensity: float = 2.0
+@export var color_range: Array = [Color(1, 1, 1), Color(1, 0, 0), Color(0, 1, 0), Color(0, 0, 1)]
 @export var camera_speed: float = 5.0 
-@export var textures: Array = []
+@export var num_lights: int = 5
 
+var textures: Array = []
 var config = {}
+
+func create_random_light():
+	var light = SpotLight3D.new()  # Change this to DirectionalLight, SpotLight, etc., as needed
+	light.light_color = color_range[randi() % color_range.size()]
+	light.light_energy = rand_range(min_intensity, max_intensity)
+	var pos_x = rand_range(-position_range.x, position_range.x)
+	var pos_y = rand_range(-position_range.y, position_range.y)
+	var pos_z = rand_range(-position_range.z, position_range.z)
+	light.transform.origin = Vector3(pos_x, pos_y, pos_z)  # Set the local translation
+
+	return light
 
 func load_textures():
 	var texture_path = "res://textures/"
@@ -41,6 +54,10 @@ func _ready():
 	for _i in range(shapes_to_generate):
 		var shape_instance = create_random_shape(min_shape_size, max_shape_size, pos_range)
 		add_child(shape_instance)
+	
+	for i in range(num_lights):
+		var light = create_random_light()
+		add_child(light)
 
 func load_config():
 	var file_path = "res://config.json"
