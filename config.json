@@ -1,5 +1,5 @@
 {
-	"number_of_shapes": 20,
+	"number_of_shapes": 4,
 	"min_size": 0.5,
 	"max_size": 2.0,
 	"position_range": {
@@ -10,5 +10,6 @@
 	"light_intensity_range": [0.5, 2.0],
 	"light_color_range": [0.5, 1.0],
 	"camera_maxspeed": 100.0,
-	"camera_accel": 10.0
+	"camera_accel": 10.0,
+	"num_lights": 35
 }

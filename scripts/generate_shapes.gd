@@ -68,6 +68,7 @@ func load_config():
 		number_of_shapes = config.get("number_of_shapes", number_of_shapes)
 		min_size = config.get("min_size", min_size)
 		max_size = config.get("max_size", max_size)
+		num_lights = config.get("num_lights", num_lights)
 		file.close()
 
 func create_random_shape(min_shape_size: float, max_shape_size: float, pos_range: Dictionary):
